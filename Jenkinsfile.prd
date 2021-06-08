@@ -35,7 +35,7 @@ spec:
                         ]],
                         userRemoteConfigs: [[
                             credentialsId: 'bookinfo-git-deploy-key',
-                            url: 'git@gitlab.com:workshop35/bookinfo/productpage.git'
+                            url: 'git@gitlab.com:workshop35/bookinfo/reviews.git'
                         ]]
                     ])
 				}
@@ -47,10 +47,10 @@ spec:
                 container('helm') {
                     script {
 						withKubeConfig([credentialsId: 'gke-opsta-cluster-sa-secret-file']) {
-							sh "helm upgrade -f k8s/helm-values/values-bookinfo-prd-productpage.yaml --wait \
+							sh "helm upgrade -f k8s/helm-values/values-bookinfo-prd-reviews.yaml --wait \
                                  --set extraEnv.COMMIT_ID=${scmVars.GIT_COMMIT} \
                                  --set ratings.tag=${params.TAG} \
-                                 --namespace opsta-prd bookinfo-prd-productpage k8s/helm/ \
+                                 --namespace opsta-prd bookinfo-prd-reviews k8s/helm/ \
                                  --install"
 						}
                     }
