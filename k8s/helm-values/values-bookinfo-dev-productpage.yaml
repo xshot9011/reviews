@@ -1,0 +1,20 @@
+productpage:
+  namespace: opsta-dev
+  image: bigdev2000/productpage
+  tag: dev
+  replicas: 1
+  imagePullSecrets: default-token-r2ttf
+  port: 9080
+  healthCheckPath: "/health"
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  host: productpage.dev.big-bookinfo.opsta.in.th
+  path: "/productpage(/|$)(.*)"
+  serviceType: ClusterIP
+extraEnv:
+  DETAILS_HOSTNAME: http://details.dev.big-bookinfo.opsta.in.th/details
+  RATINGS_HOSTNAME: http://ratings.dev.big-bookinfo.opsta.in.th/ratings
+  REVIEWS_HOSTNAME: http://reviews.dev.big-bookinfo.opsta.in.th/reviews
+  COMMIT_ID: CHANGE_ME

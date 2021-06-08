@@ -1,0 +1,7 @@
+version: "2"
+services:
+  ratings:
+    build: .
+    image: bigdev2000/reviews
+    ports: 
+      - "9080:9080"
