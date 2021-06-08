@@ -121,7 +121,7 @@ public class LibertyRestEndpoint extends Application {
     @GET
     @Path("/health")
     public Response health() {
-        return Response.ok().type(MediaType.APPLICATION_JSON).entity("{\"status\": \"Reviews is healthy\"}").build();
+        return Response.ok().type(MediaType.APPLICATION_JSON).entity("{\"status\": \"Reviews is healthy !!!\"}").build();
     }
 
     @GET
