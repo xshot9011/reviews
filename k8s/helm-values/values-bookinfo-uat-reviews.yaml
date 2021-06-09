@@ -14,4 +14,6 @@ ingress:
   path: "/reviews(/|$)(.*)"
   serviceType: ClusterIP
 extraEnv:
+  RATINGS_SERVICE: http://ratings.uat.big-bookinfo.opsta.in.th/ratings
+  ENABLE_RATINGS: true
   COMMIT_ID: CHANGE_ME
