@@ -6,6 +6,17 @@ repositories {
   mavenCentral()
 }
 
+buildscript {
+  repositories {
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.2.0'
+  }
+}
+
 dependencies {
     providedCompile group:'javax.websocket', name:'javax.websocket-api', version:'1.1'
     providedCompile group:'javax.ws.rs', name:'javax.ws.rs-api', version:'2.0'
@@ -17,3 +28,5 @@ dependencies {
     providedCompile 'javax.enterprise:cdi-api:1.2'
     providedCompile 'io.swagger:swagger-annotations:1.5.0'
 }
+
+apply plugin: "org.sonarqube"
